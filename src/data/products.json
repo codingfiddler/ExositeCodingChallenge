@@ -1,0 +1,34 @@
+{
+ "products": [
+   {
+     "name": "test1",
+     "sku": "1234",
+     "price": 12.21,
+     "features": [
+       "desc1",
+       "desc2",
+       "desc3"
+     ]
+   },
+   {
+     "name": "test2",
+     "sku": "1235",
+     "price": 12.23,
+     "features": [
+       "desc1",
+       "desc2",
+       "desc3"
+     ]
+   },
+   {
+     "name": "test3",
+     "sku": "1236",
+     "price": 24.00,
+     "features": [
+       "desc1",
+       "desc2",
+       "desc3"
+     ]
+   },
+ ]
+}
