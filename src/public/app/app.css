@@ -54,3 +54,15 @@ body {
 .card-title, .card-subtitle {
   text-align: center;
 }
+
+#shippingDetailsCard {
+
+}
+
+#shippingFormCard {
+
+}
+
+#orderConfirmButton {
+  float: right;
+}

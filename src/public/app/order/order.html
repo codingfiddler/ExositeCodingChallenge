@@ -1,1 +1,50 @@
-<p>Order</p>
+
+<div class="row">
+    <div class="col-lg-2 col-md-1 col-sm-12 col-xs-12"></div>
+    <div class="col-lg-4 col-md-5 col-sm-12 col-xs-12">
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">Item</h5>
+                <p>Price</p>
+                <p>Shipping and Handling</p>
+                <p>-----</p>
+                <p>Total</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4 col-md-5 col-sm-12 col-xs-12">
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <p>{{shippingForm.$valid}}</p>
+                <form name="shippingForm" ng-submit="submit()">
+                    <div class="form-group">
+                        <label for="name">Name *</label>
+                        <input type="text" class="form-control" id="name" name="name" ng-model="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Street Address *</label>
+                        <input type="text" class="form-control" id="street" name="street" ng-model="street" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="name">City *</label>
+                        <input type="text" class="form-control" id="city" name="city"  ng-model="city" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="name">State *</label>
+                        <select id="state" class="form-control" name="state" ng-model="state" required>
+                            <option ng-repeat="state in states" value="{{state}}">{{state}}</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Zip Code *</label>
+                        <input type="text" class="form-control" id="zipcode" name="zipcode" ng-model="zipcode" max-length="5" required>
+                    </div>
+                    <button id="crderConfirmButton" type="submit" class="btn btn-raised btn-success">Confirm</button>
+                </form>
+            </div>
+        </div>
+
+    </div>
+    <div class="col-lg-2 col-md-1 col-sm-12 col-xs-12"></div>
+</div>
