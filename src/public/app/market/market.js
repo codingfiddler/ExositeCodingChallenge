@@ -24,7 +24,6 @@ angular.module('myApp.marketView', ['ngRoute'])
         $http(httpOptions)
             .then(response => {
                $scope.products = response.data;
-               console.log(response.data);
             }, err => {
                 //TODO give error message to client
             });

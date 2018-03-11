@@ -5,7 +5,7 @@
         <div class="card" style="width: 18rem;">
             <div class="card-body">
                 <h5 class="card-title">{{product.name}}</h5>
-                <p><strong>Product Price:</strong> {{product.price | currency}}</p>
+                <p><strong>Price:</strong> {{product.price | currency}}</p>
                 <span ng-show="state">
                     <p><strong>Shipping and Handling:</strong> {{shippingHandlingCost | currency}}</p>
                     <hr>
@@ -20,7 +20,9 @@
     <div class="col-lg-4 col-md-5 col-sm-12 col-xs-12">
         <div class="card" style="width: 18rem;">
             <div class="card-body">
-                <p>{{shippingForm.$valid}}</p>
+                <div ng-repeat="message in messages" ng-class="getMessageClass()">
+                    {{message.text}}
+                </div>
                 <form name="shippingForm" ng-submit="submit()">
                     <div class="form-group">
                         <label for="name">Name *</label>
