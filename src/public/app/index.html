@@ -6,22 +6,27 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Buymart IoT</title>
+  <title>Buymart IoT Store</title>
   <meta name="description" content="Source of the best IoT devices">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/normalize.css">
   <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css">
-  <link rel="stylesheet" href="bower_components/angular-material/angular-material.css">
   <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css" integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
   <link rel="stylesheet" href="bower_components/bootstrap-material-design-icons/css/material-icons.css">
   <link rel="stylesheet" href="app.css">
   <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
 <body>
-   <!--<ng-include src="'components/sidebar.html'"></ng-include>-->
   <ng-include src="'components/navbar.html'"></ng-include>
    <div class="container">
-     <div ng-view ng-cloak></div>
+     <div class="row">
+        <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+          <ng-include src="'components/sidebar.html'"></ng-include>
+        </div>
+        <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
+          <div ng-view ng-cloak></div>
+        </div>
+     </div>
    </div>
 
 

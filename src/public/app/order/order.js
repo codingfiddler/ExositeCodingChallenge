@@ -14,17 +14,16 @@ angular.module('myApp.order', ['ngRoute'])
 
        $scope.states = ['AL', 'AK', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'FL', 'GA', 'HI', 'ID', 'IL', 'IN', 'IA', 'KS', 'KY', 'LA', 'ME', 'MD', 'MA', 'MI', 'MN', 'MS', 'MO', 'MT', 'NE', 'NV', 'NH', 'NJ', 'NM', 'NY', 'NC', 'ND', 'OH', 'OK', 'OR', 'PA', 'RI', 'SC', 'SD', 'TN', 'TX', 'UT', 'VT', 'VA', 'WA', 'WV', 'WI', 'WY'];
        $scope.messages = [];
-       //Is this necessary?
+
        $scope.location = $location;
        $scope.orderService = orderService;
        $scope.product = $scope.orderService.getCurrentProduct();
 
        $scope.shippingService = shippingService;
-
-
    };
 
    $scope.getMessageClass = function(message){
+       console.log(message);
        var cssClass = '';
 
        switch(message.type) {
@@ -44,20 +43,27 @@ angular.module('myApp.order', ['ngRoute'])
    $scope.calculateTotal = function(){
      $scope.shippingHandlingCost = $scope.shippingService.calculateShipping($scope.state);
      $scope.totalCost = $scope.shippingHandlingCost + $scope.product.price;
+     console.log($scope.shippingForm);
    };
 
    $scope.submit = function() {
 
-      if ($scope.shippingForm.$valid) {
-          // Form is valid, buy the selected product and send user to the Thank You page
-          $scope.orderService.buyCurrentProduct();
+       $scope.messages = [];
 
-          $location.path('/confirmation')
-      }
-      else {
-          // Display an error message with extra details on what's missing
-          $scope.messages.push({text: 'Form is not complete', type: 'error'})
-      }
+
+       var zipRegex = /\d{5}/;
+       var match = $scope.zipcode.match(zipRegex);
+
+       if (match) {
+           // Good zip code
+           // Form is valid, buy the selected product and send user to the Thank You page
+           $scope.orderService.buyCurrentProduct();
+           $location.path('/confirmation')
+       }
+       else{
+           //Not a valid zip code, show error message
+           $scope.messages.push({text: 'Please enter a valid zip code, e.g. 55102', type: 'error'});
+       }
    };
 
    $scope.init();

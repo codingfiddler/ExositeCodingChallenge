@@ -4,30 +4,11 @@ body {
   background-color: lightgray;
 }
 
-.menu {
-  list-style: none;
-  border-bottom: 0.1em solid black;
-  margin-bottom: 2em;
-  padding: 0 0 0.5em;
-}
 
-.menu:before {
-  content: "[";
+#mainNavbar {
+  color: #ffffff;
+  background-color: midnightblue;
 }
-
-.menu:after {
-  content: "]";
-}
-
-.menu > li {
-  display: inline;
-}
-
-.menu > li + li:before {
-  content: "|";
-  padding-right: 0.3em;
-}
-
 
 /* Card styles */
 .card {
@@ -65,4 +46,33 @@ body {
 
 #orderConfirmButton {
   float: right;
+}
+
+@media (max-width: 510px) {
+  #shippingDetailsCard, #shippingFormCard {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (min-width: 511px) and (max-width: 767px) {
+  #shippingDetailsCard, #shippingFormCard {
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (min-width: 768px) {
+  /* Correct some weird formatting on zipcode at larger breakpoints */
+  #zipcode {
+    margin-top: 9px;
+  }
+
+  #shippingDetailsCard, #shippingFormCard {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
