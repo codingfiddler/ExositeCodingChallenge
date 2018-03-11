@@ -4,11 +4,16 @@
     <div class="col-lg-4 col-md-5 col-sm-12 col-xs-12">
         <div class="card" style="width: 18rem;">
             <div class="card-body">
-                <h5 class="card-title">Item</h5>
-                <p>Price</p>
-                <p>Shipping and Handling</p>
-                <p>-----</p>
-                <p>Total</p>
+                <h5 class="card-title">{{product.name}}</h5>
+                <p><strong>Product Price:</strong> {{product.price | currency}}</p>
+                <span ng-show="state">
+                    <p><strong>Shipping and Handling:</strong> {{shippingHandlingCost | currency}}</p>
+                    <hr>
+                    <p><strong>Total:</strong> {{totalCost | currency}}</p>
+                </span>
+                <span ng-show="!state">
+                    Select a state to calculate Shipping and Handling Costs
+                </span>
             </div>
         </div>
     </div>
@@ -32,7 +37,7 @@
 
                     <div class="form-group">
                         <label for="name">State *</label>
-                        <select id="state" class="form-control" name="state" ng-model="state" required>
+                        <select id="state" class="form-control" name="state" ng-model="state" ng-change="calculateTotal()" required>
                             <option ng-repeat="state in states" value="{{state}}">{{state}}</option>
                         </select>
                     </div>
@@ -40,7 +45,7 @@
                         <label for="name">Zip Code *</label>
                         <input type="text" class="form-control" id="zipcode" name="zipcode" ng-model="zipcode" max-length="5" required>
                     </div>
-                    <button id="crderConfirmButton" type="submit" class="btn btn-raised btn-success">Confirm</button>
+                    <button id="orderConfirmButton" type="submit" class="btn btn-raised btn-success">Confirm</button>
                 </form>
             </div>
         </div>

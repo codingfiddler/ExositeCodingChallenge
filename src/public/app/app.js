@@ -6,8 +6,7 @@ angular.module('myApp', [
   'myApp.view1',
   'myApp.view2',
   'myApp.marketView',
-  'myApp.order',
-  'myApp.version'
+  'myApp.order'
 ]).
 config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
   $locationProvider.hashPrefix('!');

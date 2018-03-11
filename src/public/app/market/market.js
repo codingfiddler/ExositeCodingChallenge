@@ -9,11 +9,12 @@ angular.module('myApp.marketView', ['ngRoute'])
   });
 }])
 
-.controller('MarketCtrl', ['$scope','$http', function($scope, $http) {
+.controller('MarketCtrl', ['$scope','$http', '$location', 'orderService', function($scope, $http, $location, orderService) {
 
     $scope.init = function(){
 
         $scope.products = [];
+        $scope.orderService = orderService;
 
         var httpOptions = {
             method: 'GET',
@@ -28,6 +29,13 @@ angular.module('myApp.marketView', ['ngRoute'])
                 //TODO give error message to client
             });
     };
+
+    $scope.orderProduct = function(product){
+       $scope.orderService.setCurrentProduct(product);
+       $location.path('/order');
+    };
+
+
 
     $scope.init();
 

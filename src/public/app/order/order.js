@@ -9,9 +9,24 @@ angular.module('myApp.order', ['ngRoute'])
   });
 }])
 
-.controller('OrderCtrl', ['$scope', function($scope) {
+.controller('OrderCtrl', ['$scope', '$location', 'orderService', 'shippingService', function($scope, $location, orderService, shippingService) {
    $scope.init = function(){
-     $scope.states = ['AL', 'AK', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'FL', 'GA', 'HI', 'ID', 'IL', 'IN', 'IA', 'KS', 'KY', 'LA', 'ME', 'MD', 'MA', 'MI', 'MN', 'MS', 'MO', 'MT', 'NE', 'NV', 'NH', 'NJ', 'NM', 'NY', 'NC', 'ND', 'OH', 'OK', 'OR', 'PA', 'RI', 'SC', 'SD', 'TN', 'TX', 'UT', 'VT', 'VA', 'WA', 'WV', 'WI', 'WY'];
+
+       $scope.states = ['AL', 'AK', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'FL', 'GA', 'HI', 'ID', 'IL', 'IN', 'IA', 'KS', 'KY', 'LA', 'ME', 'MD', 'MA', 'MI', 'MN', 'MS', 'MO', 'MT', 'NE', 'NV', 'NH', 'NJ', 'NM', 'NY', 'NC', 'ND', 'OH', 'OK', 'OR', 'PA', 'RI', 'SC', 'SD', 'TN', 'TX', 'UT', 'VT', 'VA', 'WA', 'WV', 'WI', 'WY'];
+
+       //Is this necessary?
+       $scope.location = $location;
+       $scope.orderService = orderService;
+       $scope.product = $scope.orderService.getCurrentProduct();
+
+       $scope.shippingService = shippingService;
+
+
+   };
+
+   $scope.calculateTotal = function(){
+     $scope.shippingHandlingCost = $scope.shippingService.calculateShipping($scope.state);
+     $scope.totalCost = $scope.shippingHandlingCost + $scope.product.price;
    };
 
    $scope.submit = function() {

@@ -4,12 +4,12 @@
         <div class="card" style="width: 18rem;" >
             <div class="card-body">
                 <h5 class="card-title">{{product.name}}</h5>
-                <h6 class="card-subtitle mb-2 text-muted">${{product.price}}</h6>
+                <h6 class="card-subtitle mb-2 text-muted">{{product.price | currency}}</h6>
                 <p class="card-text">
                     <div class="product-feature" ng-repeat="feature in product.features">{{feature}}</div>
                 </p>
                 <div class="buy-button-wrapper">
-                    <a href="#!/order" class="btn btn-raised btn-success buy-button">Buy</a>
+                    <a ng-click="orderProduct(product)" class="btn btn-raised btn-success buy-button">Buy</a>
                 </div>
             </div>
         </div>
