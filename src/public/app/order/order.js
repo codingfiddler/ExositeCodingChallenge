@@ -49,7 +49,9 @@ angular.module('myApp.order', ['ngRoute'])
    $scope.submit = function() {
 
       if ($scope.shippingForm.$valid) {
-          // Form is valid, send user to the Thank You page
+          // Form is valid, buy the selected product and send user to the Thank You page
+          $scope.orderService.buyCurrentProduct();
+
           $location.path('/confirmation')
       }
       else {

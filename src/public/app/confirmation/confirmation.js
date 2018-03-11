@@ -14,7 +14,7 @@ angular.module('myApp.confirmation', ['ngRoute'])
 
        $scope.location = $location;
        $scope.orderService = orderService;
-       $scope.product = $scope.orderService.getCurrentProduct();
+       $scope.product = $scope.orderService.getLastOrderedProduct();
 
    };
 
