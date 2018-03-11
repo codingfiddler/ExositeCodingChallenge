@@ -1,5 +1,9 @@
 /* app css stylesheet */
 
+body {
+  background-color: lightgray;
+}
+
 .menu {
   list-style: none;
   border-bottom: 0.1em solid black;
@@ -22,4 +26,31 @@
 .menu > li + li:before {
   content: "|";
   padding-right: 0.3em;
+}
+
+
+/* Card styles */
+.card {
+  margin-top: 10px;
+  min-height: 300px;
+}
+
+.buy-button-wrapper {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.buy-button{
+   width: 60%;
+}
+
+.product-feature:before {
+  content: "* ";
+  font-weight: bold;
+}
+
+.card-title, .card-subtitle {
+  text-align: center;
 }
