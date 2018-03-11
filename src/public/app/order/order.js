@@ -16,6 +16,13 @@ angular.module('myApp.order', ['ngRoute'])
 
    $scope.submit = function() {
       console.log($scope.shippingForm);
+
+      if (!$scope.shippingForm.$valid) {
+        // Display an error message with extra details on what's missing
+      }
+      else {
+        // Form is valid, send user to the Thank You page
+      }
    };
 
    $scope.init();
