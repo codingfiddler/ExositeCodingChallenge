@@ -82,7 +82,6 @@ angular.module('myApp.order', ['ngRoute'])
    $scope.calculateTotal = function() {
      $scope.shippingHandlingCost = $scope.shippingService.calculateShipping($scope.state);
      $scope.totalCost = $scope.shippingHandlingCost + $scope.product.price;
-     console.log($scope.shippingForm);
    };
 
    $scope.submit = function() {

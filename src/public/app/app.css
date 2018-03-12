@@ -85,7 +85,7 @@ body {
 }
 
 @media (min-width: 768px) {
-  /* Correct some weird formatting on zipcode at larger breakpoints */
+  /* Correct some weird formatting on state at larger breakpoints */
   #state {
     margin-top: -9px;
   }

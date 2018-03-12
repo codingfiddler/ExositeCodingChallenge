@@ -39,6 +39,11 @@ angular.module('myApp')
            localStorage.removeItem(productKey);
         };
 
+        var clearCurrentProduct = function () {
+            currentProduct = undefined;
+            clearProductFromStorage('currentProduct');
+        };
+
         service.getLatestProducts = function(callback){
 
             $http(productHTTPOptions)
@@ -62,17 +67,13 @@ angular.module('myApp')
             return currentProduct;
         };
 
-        service.clearCurrentProduct = function () {
-            currentProduct = undefined;
-            clearProductFromStorage('currentProduct');
-        };
-
         service.getLastOrderedProduct = function() {
            return lastOrderedProduct;
         };
 
         service.buyCurrentProduct = function(){
             lastOrderedProduct = currentProduct;
+            clearCurrentProduct();
             saveProductToStorage('lastOrderedProduct', lastOrderedProduct);
             clearProductFromStorage('currentProduct');
         };

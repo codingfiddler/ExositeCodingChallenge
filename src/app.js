@@ -37,9 +37,14 @@ app.use(function(err, req, res, next) {
 
   logger.error(err.message,{error: err});
 
-  //TODO only send this if in development
-  res.status(err.status || 500)
-      .send(err.status + ' - ' + err.message);
+    if (req.app.get('env') === 'development') {
+        res.status(err.status || 500)
+            .send(err.status + ' - ' + err.message);
+    }
+    else {
+        res.sendStatus(err.status || 500)
+    }
+
 });
 
 module.exports = app;
