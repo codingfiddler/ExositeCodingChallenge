@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const fs = require('fs');
-const path = require('path');
-const constants = require('../constants/constants');
+const constants = require('../../constants/constants');
+const logger = require('../../util/logger');
 
 /* Return a list of all products */
 router.get('/', function(req, res, next) {
@@ -19,6 +19,7 @@ router.get('/', function(req, res, next) {
 
             try {
                 let productsJSON = JSON.parse(productsJSONString);
+                logger.info('Retrieved products',{count: productsJSON.length});
                 res.status(200).json(productsJSON.products);
             }
             catch (e) {
@@ -56,9 +57,11 @@ router.get('/:sku', function(req, res, next) {
             let product = productsJSON.products.find(p => p.sku === sku);
 
             if (product) {
+                logger.info('Retrieved individual product',{sku: sku});
                 res.status(200).json(product);
             }
             else {
+                logger.info('Product sku does not exist',{sku: sku});
                 res.status(404).send('Product not found');
             }
 

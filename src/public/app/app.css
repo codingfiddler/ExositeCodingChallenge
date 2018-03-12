@@ -10,6 +10,20 @@ body {
   background-color: midnightblue;
 }
 
+#sidebarNav {
+  background-color: #BEBEBE;
+    height: 100%;
+
+}
+
+.brandLabel {
+    position: absolute;
+    left: 100px;
+    font-weight: 500;
+    font-size: xx-large;
+}
+
+
 /* Card styles */
 .card {
   margin-top: 10px;
@@ -19,12 +33,18 @@ body {
 .buy-button-wrapper {
   width: 100%;
   display: flex;
-  align-items: center;
-  justify-content: center;
+    position: absolute;
+    bottom: 10px;
+    left: 20%;
 }
 
 .buy-button{
    width: 60%;
+}
+
+#marketFooter {
+    text-align: center;
+    margin-top: 25px;
 }
 
 .product-feature:before {
@@ -66,8 +86,8 @@ body {
 
 @media (min-width: 768px) {
   /* Correct some weird formatting on zipcode at larger breakpoints */
-  #zipcode {
-    margin-top: 9px;
+  #state {
+    margin-top: -9px;
   }
 
   #shippingDetailsCard, #shippingFormCard {

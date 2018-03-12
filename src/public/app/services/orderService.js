@@ -1,10 +1,18 @@
 /* Service to store currently selected product */
 
 angular.module('myApp')
-    .factory('orderService', function () {
+    .factory('orderService', ['$http', function ($http) {
         var service = {};
+        service.products = [];
+
         var currentProduct;
         var lastOrderedProduct;
+
+        // HTTP options for product listing
+        var productHTTPOptions = {
+            method: 'GET',
+            url: '/v1/products'
+        };
 
         // Methods to save and retrieve product data to local storage
 
@@ -29,6 +37,20 @@ angular.module('myApp')
 
         var clearProductFromStorage = function(productKey) {
            localStorage.removeItem(productKey);
+        };
+
+        service.getLatestProducts = function(callback){
+
+            $http(productHTTPOptions)
+                .then(response => {
+                    service.products = response.data;
+
+                    callback(undefined,response.data);
+
+                }, err => {
+                    console.error('Error getting latest products')
+                    callback(err);
+                });
         };
 
         service.setCurrentProduct = function (product) {
@@ -62,4 +84,4 @@ angular.module('myApp')
         init();
 
         return service;
-    });
+    }]);

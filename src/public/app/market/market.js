@@ -13,28 +13,24 @@ angular.module('myApp.marketView', ['ngRoute'])
 
     $scope.init = function(){
 
-        $scope.products = [];
         $scope.orderService = orderService;
+        $scope.products = [];
+        $scope.orderService.getLatestProducts(function(err, data){
+           if (err) {
+               console.error("Error getting products " + err);
+           }
+           else {
+               $scope.products = data;
+           }
 
-        var httpOptions = {
-            method: 'GET',
-            url: '/products'
-        };
+        });
 
-        $http(httpOptions)
-            .then(response => {
-               $scope.products = response.data;
-            }, err => {
-                //TODO give error message to client
-            });
     };
 
     $scope.orderProduct = function(product){
        $scope.orderService.setCurrentProduct(product);
        $location.path('/order');
     };
-
-
 
     $scope.init();
 
