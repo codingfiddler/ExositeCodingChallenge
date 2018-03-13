@@ -2,12 +2,19 @@
 This app was created in response to a coding challenge for a basic product marketplace.
 
 ## Running the App
+Make sure that Node.js is installed (tested with v8.10.0) and that bower is installed globally 
+through `npm install bower -g`.
+
 1. run `npm install && bower install` to install all dependencies.
 2. Run `npm start` to start the app. By default it will run on `http://localhost:3000` unless a different PORT environment
    variable is set.
 
 ## Design Choices
 Here are the major design choices that influenced how I built this app:
+
+* **Start with known templates**: I used the Express generator to quickly create a default backend and then added the Angular
+  seed starter to quickly bootstrap a working app. This approach can make a huge difference in starting a project
+  with good best-practices and also let me focus on the unique elements of the app and less on basic wiring.
 
 * **Mobile-first design**: I used Bootstrap 4 to make sure the app was responsive on all devices. 
 Using a framework like Bootstrap allowed a much faster implementation with already available
