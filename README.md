@@ -1,12 +1,12 @@
-#Exosite Coding Challenge
+# Exosite Coding Challenge
 This app was created in response to a coding challenge for a basic product marketplace.
 
-##Running the App
+## Running the App
 1. run `npm install && bower install` to install all dependencies.
 2. Run `npm start` to start the app. By default it will run on `http://localhost:3000` unless a different PORT environment
    variable is set.
 
-##Design Choices
+## Design Choices
 Here are the major design choices that influenced how I built this app:
 
 * Mobile-first design: I used Bootstrap 4 to make sure the app was responsive on all devices. 
@@ -34,7 +34,7 @@ extra modules, in this case I've also used it to serve the front-end app for sim
 to handle serving my list of sample products, but made sure to add some basic logging through Winston. The API 
 is also set up to easily serve multiple versions of itself if needed.
 
-##Opportunities for Improvement
+## Opportunities for Improvement
 If I were to do this project again I would do a few things differently to improve the app and the overall experience:
 * Add a set of production Gulp build tasks to generate a minified and concatenated version of the client for easy distribution.
 * Improve styling of the product cards to better handle arbitrary lengths of feature content.
