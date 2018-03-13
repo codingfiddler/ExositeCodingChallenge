@@ -13,8 +13,8 @@ Here are the major design choices that influenced how I built this app:
 Using a framework like Bootstrap allowed a much faster implementation with already available
 UI components.
 
-* **User-experience**: I think it's really important to think of how a customer would interact with an app and 
-not only consider what technology is being used behind the scenes. Helpful features like saving a customer's order 
+* **User-experience**: I think it's really important to think of how a customer would interact with an app in addition to
+ what technology is being used behind the scenes. Helpful features like saving a customer's order 
 until they complete the purchase, or even just saving shipping details until a purchase is complete, helps
  avoid any frustration with data re-entry and make it easier for someone to buy one of the listed products. 
 
