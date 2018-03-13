@@ -9,16 +9,16 @@ This app was created in response to a coding challenge for a basic product marke
 ## Design Choices
 Here are the major design choices that influenced how I built this app:
 
-* Mobile-first design: I used Bootstrap 4 to make sure the app was responsive on all devices. 
+* **Mobile-first design**: I used Bootstrap 4 to make sure the app was responsive on all devices. 
 Using a framework like Bootstrap allowed a much faster implementation with already available
 UI components.
 
-* User-experience: I think it's really important to think of how a customer would interact with an app and 
+* **User-experience**: I think it's really important to think of how a customer would interact with an app and 
 not only consider what technology is being used behind the scenes. Helpful features like saving a customer's order 
 until they complete the purchase, or even just saving shipping details until a purchase is complete, helps
  avoid any frustration with data re-entry and make it easier for someone to buy one of the listed products. 
 
-* AngularJS: The vast majority of my JS framework experience has been in Angular so it was a natural fit
+* **AngularJS**: The vast majority of my JS framework experience has been in Angular so it was a natural fit
 for a project with a tight timeline. Some notable features include:
     * An Order service that handles data storage, both in-memory and in local storage to maintain
       application state even on page reloads. It also saves customer shipping details until they 
@@ -29,7 +29,7 @@ for a project with a tight timeline. Some notable features include:
       as well as live zip code validation to immediately alert the customer if an invalid zip code is entered. 
     * A Dynamic list of products retrieved from the API server.
       
-* Express: I love using Express as my backend API server due to it's flexibility and an excellent ecosystem of 
+* **Express**: I love using Express as my backend API server due to it's flexibility and an excellent ecosystem of 
 extra modules, in this case I've also used it to serve the front-end app for simplicity. I only needed one route
 to handle serving my list of sample products, but made sure to add some basic logging through Winston. The API 
 is also set up to easily serve multiple versions of itself if needed.
