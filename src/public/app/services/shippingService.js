@@ -5,7 +5,6 @@ angular.module('myApp')
         var service = {};
 
         service.calculateShipping = function(state){
-
             var cost;
 
             switch (state){

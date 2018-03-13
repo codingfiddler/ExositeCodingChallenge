@@ -34,6 +34,9 @@ angular.module('myApp.order', ['ngRoute'])
        }
 
        $scope.shippingService = shippingService;
+       if ($scope.formdata) {
+           $scope.calculateTotal(); //Initalize shipping calculation in case of reloads
+       }
    };
 
    $scope.getMessageClass = function(message){
@@ -86,7 +89,7 @@ angular.module('myApp.order', ['ngRoute'])
    };
 
    $scope.calculateTotal = function() {
-     $scope.shippingHandlingCost = $scope.shippingService.calculateShipping($scope.state);
+     $scope.shippingHandlingCost = $scope.shippingService.calculateShipping($scope.formdata.state);
      $scope.totalCost = $scope.shippingHandlingCost + $scope.product.price;
    };
 

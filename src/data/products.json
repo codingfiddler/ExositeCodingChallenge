@@ -1,33 +1,32 @@
 {
  "products": [
    {
-     "name": "test1",
+     "name": "Test Product",
      "sku": "1234",
      "price": 12.21,
      "features": [
-       "desc1 asdf asdf asdf asdf asdf asdfasd fasdf",
-       "desc2 asdf asdf asdfa sasdf asdf asdf asdf ",
-       "desc3 asdf asdf asdfas dfas dfasdf"
+       "This is a test feature",
+       "Another test feature",
+       "Yet another feature"
      ]
    },
    {
-     "name": "test2",
+     "name": "Another Test Product",
      "sku": "1235",
-     "price": 12.23,
+     "price": 8.23,
      "features": [
-       "desc1 asdf asdf asdf asdf asd",
-       "desc2 asdf asdf asdfas dfsadf ",
-       "desc3 a sdfasdf asd sadf asdfg asdf"
+       "This is a pretty great product",
+       "Can be overclocked"
      ]
    },
    {
-     "name": "test3",
+     "name": "Other Product",
      "sku": "1236",
      "price": 24.00,
      "features": [
-       "desc1 asdf asdf asdf a asdf ",
-       "desc2asdf asdf asdf sadfsad ",
-       "desc3 asdfasdf"
+       "This product is so cool",
+       "Able to lift 100x it's own weight",
+       "Definitely can't run Crysis"
      ]
    }
  ]

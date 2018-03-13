@@ -5,12 +5,12 @@
             <div class="card-body">
                 <h5 class="card-title">{{product.name}}</h5>
                 <p><strong>Price:</strong> {{product.price | currency}}</p>
-                <span ng-show="state">
+                <span ng-show="formdata.state">
                     <p><strong>Shipping and Handling:</strong> {{shippingHandlingCost | currency}}</p>
                     <hr>
                     <p><strong>Total:</strong> {{totalCost | currency}}</p>
                 </span>
-                <div class="alert alert-info" ng-show="!state">
+                <div class="alert alert-info" ng-show="!formdata.state">
                     Select a state to calculate Shipping and Handling Costs
                 </div>
             </div>

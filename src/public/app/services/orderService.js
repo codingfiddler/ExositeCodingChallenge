@@ -23,7 +23,10 @@ angular.module('myApp')
         };
 
         var saveCurrentShippingDetailsToStorage = function(shippingDetailsObject) {
-            localStorage.setItem('currentShippingDetails', JSON.stringify(shippingDetailsObject));
+            if (shippingDetailsObject !== undefined) {
+                localStorage.setItem('currentShippingDetails', JSON.stringify(shippingDetailsObject));
+            }
+
         };
         var loadCurrentShippingDetailsFromStorage = function(){
           var shippingDetailsString = localStorage.getItem('currentShippingDetails');
