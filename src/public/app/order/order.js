@@ -19,6 +19,12 @@ angular.module('myApp.order', ['ngRoute'])
        $scope.location = $location;
        $scope.orderService = orderService;
        $scope.product = $scope.orderService.getCurrentProduct();
+       $scope.formdata = $scope.orderService.getShippingDetails();
+
+       $scope.$watchCollection('formdata', function(){
+          // Save current shipping details to local storage so the user doesn't have to enter them extraneously
+          $scope.orderService.saveShippingDetails($scope.formdata);
+       });
 
        if (!$scope.product) {
            // User navigated to the Order page after purchasing a product, send them to the market page since there's
@@ -54,9 +60,9 @@ angular.module('myApp.order', ['ngRoute'])
        $scope.messages = [];
 
        var zipRegex = /^\d{5}$/;
-       if ($scope.zipcode) {
+       if ($scope.formdata.zipcode) {
            // Only evaluate if there's a value entered
-           var match = $scope.zipcode.match(zipRegex);
+           var match = $scope.formdata.zipcode.match(zipRegex);
 
            if (match) {
                $scope.submitDisabled = false;

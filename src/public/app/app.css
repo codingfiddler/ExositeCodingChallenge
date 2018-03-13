@@ -4,16 +4,24 @@ body {
   background-color: lightgray;
 }
 
+hr {
+    border-color: lightgray;
+}
+
 
 #mainNavbar {
   color: #ffffff;
-  background-color: midnightblue;
+  background-color: #3f51b5;
 }
 
 #sidebarNav {
   background-color: #BEBEBE;
     height: 100%;
 
+}
+
+.list-group > a.active {
+    background-color: #3f51b5;
 }
 
 .brandLabel {
@@ -30,7 +38,7 @@ body {
   min-height: 300px;
 }
 
-.buy-button-wrapper {
+.center-button-wrapper {
   width: 100%;
   display: flex;
     position: absolute;
@@ -56,18 +64,43 @@ body {
   text-align: center;
 }
 
-#shippingDetailsCard {
-
+/* Market page-specific styles */
+#orderSummaryCard, #confirmationCard {
+    min-height: 0px;
 }
 
-#shippingFormCard {
-
+@media (max-width: 510px) {
+  .card{
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
+
+@media (min-width: 511px) and (max-width: 767px) {
+ .card {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (min-width: 768px) {
+
+  .card {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* End market page styles */
 
 #orderConfirmButton {
   float: right;
 }
 
+/* Shipping form-specific styles */
 @media (max-width: 510px) {
   #shippingDetailsCard, #shippingFormCard {
     width: 90%;
@@ -96,3 +129,5 @@ body {
     margin-right: auto;
   }
 }
+
+/* End shipping form styles */

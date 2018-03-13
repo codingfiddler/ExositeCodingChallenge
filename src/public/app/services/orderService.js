@@ -16,9 +16,29 @@ angular.module('myApp')
 
         // Methods to save and retrieve product data to local storage
 
-        var init = function(){
+        var init = function() {
             currentProduct = getProductFromStorage('currentProduct');
-            lastOrderedProduct = getProductFromStorage('lastOrderedProduct')
+            lastOrderedProduct = getProductFromStorage('lastOrderedProduct');
+            shippingDetails = loadCurrentShippingDetailsFromStorage();
+        };
+
+        var saveCurrentShippingDetailsToStorage = function(shippingDetailsObject) {
+            localStorage.setItem('currentShippingDetails', JSON.stringify(shippingDetailsObject));
+        };
+        var loadCurrentShippingDetailsFromStorage = function(){
+          var shippingDetailsString = localStorage.getItem('currentShippingDetails');
+
+          if (shippingDetailsString) {
+              return JSON.parse(shippingDetailsString);
+          }
+          else {
+              return {};
+          }
+        };
+
+        var clearShippingDetails = function(){
+          shippingDetails = undefined;
+          localStorage.removeItem('currentShippingDetails')
         };
 
         var saveProductToStorage = function(key, product) {
@@ -44,6 +64,10 @@ angular.module('myApp')
             clearProductFromStorage('currentProduct');
         };
 
+        service.saveShippingDetails = function(details){
+            saveCurrentShippingDetailsToStorage(details);
+        };
+
         service.getLatestProducts = function(callback){
 
             $http(productHTTPOptions)
@@ -53,7 +77,6 @@ angular.module('myApp')
                     callback(undefined,response.data);
 
                 }, err => {
-                    console.error('Error getting latest products')
                     callback(err);
                 });
         };
@@ -73,9 +96,17 @@ angular.module('myApp')
 
         service.buyCurrentProduct = function(){
             lastOrderedProduct = currentProduct;
-            clearCurrentProduct();
             saveProductToStorage('lastOrderedProduct', lastOrderedProduct);
+
+            clearCurrentProduct();
             clearProductFromStorage('currentProduct');
+
+            clearShippingDetails();
+
+        };
+
+        service.getShippingDetails = function(){
+          return shippingDetails;
         };
 
         service.isProductSelected = function () {
