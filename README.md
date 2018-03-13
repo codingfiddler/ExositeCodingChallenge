@@ -49,3 +49,4 @@ If I were to do this project again I would do a few things differently to improv
 * Add additional transitions for app navigation events to improve app look and feel.
 * Use Sass for styling to clean up styling code, CSS was quicker to implement but Sass would provide a better long-term
   option to efficiently manage styling.
+* Include some basic unit tests for better long-term quality assurance.
