@@ -1,4 +1,4 @@
-/* Service to store currently selected product */
+/* Service to store currently selected product and last ordered product */
 
 angular.module('myApp')
     .factory('orderService', ['$http', function ($http) {
