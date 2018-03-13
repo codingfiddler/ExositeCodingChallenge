@@ -6,7 +6,7 @@ Make sure that Node.js is installed (tested with v8.10.0) and that bower is inst
 through `npm install bower -g`.
 
 1. run `npm install && bower install` to install all dependencies.
-2. Run `npm start` to start the app. By default it will run on `http://localhost:3000` unless a different PORT environment
+2. Run `npm start` to start the app. By default it will run on `http://localhost:3000/app/index.html` unless a different PORT environment
    variable is set.
 
 ## Design Choices
