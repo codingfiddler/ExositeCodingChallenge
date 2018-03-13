@@ -38,7 +38,7 @@ is also set up to easily serve multiple versions of itself if needed.
 If I were to do this project again I would do a few things differently to improve the app and the overall experience:
 * Add a set of production Gulp build tasks to generate a minified and concatenated version of the client for easy distribution.
 * Improve styling of the product cards to better handle arbitrary lengths of feature content.
-* Use something like webpack to manage front-end dependencies. Bower was very easy to get started with for this project 
+* Use something like webpack to manage front-end dependencies. Bower was a good fit to get started quickly on this project 
   but isn't sustainable for any future projects.
 * Add additional transitions for app navigation events to improve app look and feel.
 * Use Sass for styling to clean up styling code, CSS was quicker to implement but Sass would provide a better long-term
