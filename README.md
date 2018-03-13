@@ -34,7 +34,6 @@ for a project with a tight timeline. Some notable features include:
       use.
     * A shipping form that requires all fields to be entered before allowing an order to be completed,
       as well as live zip code validation to immediately alert the customer if an invalid zip code is entered. 
-    * A Dynamic list of products retrieved from the API server.
       
 * **Express**: I love using Express as my backend API server due to it's flexibility and an excellent ecosystem of 
 extra modules, in this case I've also used it to serve the front-end app for simplicity. I only needed one route
